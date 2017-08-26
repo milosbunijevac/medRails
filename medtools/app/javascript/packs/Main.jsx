@@ -24,15 +24,48 @@ class Main extends React.Component {
     );
   }
 
-  handleChange(text) {
-    var text = "";
-    if (window.getSelection) {
-        text = window.getSelection().toString();
+  handleChange() {
+    var selectedText = '';
+
+    if(window.getSelection()){
+      selectedText = window.getSelection();
+    } else if (document.getSelection()) {
+      selectedText = document.getSelection()
+    } else if (document.selection) {
+      selectedText = document.selection.createRange().text;
     }
-    this.setState({text: text});
-    var div = document.createElement('div');
-    div.textContent = this.state.text;
-    div.setAttribute('class', 'highLight');
+    console.log('this is selectedtext: ', selectedText)
+    this.setState({text: selectedText.toString()})
+    if(selectedText.toString() !== ''){
+      this.toolBox();
+    }
+    
+  }
+
+  toolBox() {
+    var selection = window.getSelection()
+    var range = selection.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    var div = document.createElement('div');   // make box
+    div.style.position = 'absolute';
+    
+    div.style.backgroundColor = 'yellow';
+    div.style.color = 'black';
+    div.style.top = (rect.top + -20) + 'px';
+    div.style.left= (rect.left) + 'px';
+    div.style.height = rect.height + 'px';
+    div.style.width = rect.width + 'px';
+    // console.log('this is the rect: ', rect);
+    // if(div.style.border = '2px solid black'){
+    //   div.style.border = '';
+    // }
+    // div.style.border = '2px solid black';      // with outline
+    // div.style.position = 'fixed';              // fixed positioning = easy mode
+    // div.style.top = rect.top + 'px';       // set coordinates
+    // div.style.left = rect.left + 'px';
+    // div.style.bottom = (rect.bottom + 10) + 'px';
+    // div.style.height = rect.height + 'px'; // and size
+    // div.style.width = rect.width + 'px';
     document.body.appendChild(div);
   }
 }
