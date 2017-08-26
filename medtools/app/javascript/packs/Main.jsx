@@ -25,13 +25,15 @@ class Main extends React.Component {
   }
 
   handleChange(text) {
-    var name = document.documentElement.innerHTML.indexOf(this.state.text);
-    console.log(name);
     var text = "";
     if (window.getSelection) {
         text = window.getSelection().toString();
     }
-    this.setState({text: text.toString()});
+    this.setState({text: text});
+    var div = document.createElement('div');
+    div.textContent = this.state.text;
+    div.setAttribute('class', 'highLight');
+    document.body.appendChild(div);
   }
 }
 
