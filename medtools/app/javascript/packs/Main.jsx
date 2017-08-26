@@ -2,7 +2,9 @@ require('medium-editor/dist/css/medium-editor.css');
 require('medium-editor/dist/css/themes/bootstrap.css');
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactTooltip from 'react-tooltip';
+import Tooltip from './Tooltip.jsx';
 import Editor from 'react-medium-editor';
 
 class Main extends React.Component {
@@ -38,6 +40,14 @@ class Main extends React.Component {
     
   }
 
+  highLightText() {
+    console.log('highlight this!');
+  }
+
+  commentText() {
+    console.log('comment this!');
+  }
+
   toolBox() {
     var selection = window.getSelection()
     var range = selection.getRangeAt(0);
@@ -48,11 +58,14 @@ class Main extends React.Component {
     div.style.height = 50 + 'px';
     div.style.width = rect.width + 'px';
     div.className = 'toolTip';
+    ReactDOM.render(
+      <Tooltip highli={this.highLightText} commentT={this.commentText} />,
+      document.body.appendChild(div),
+    )
     document.body.appendChild(div);
   }
   
   removetoolBox() {
-    console.log('remove box hit');
     var elements = document.getElementsByClassName('toolTip');
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
