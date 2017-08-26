@@ -4,18 +4,20 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import Main from './Main.jsx';
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+class Hello extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
+  render () {
+    return (
+      <div>
+        <Main />
+      </div>
+    )
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
