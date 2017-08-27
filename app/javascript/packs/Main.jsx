@@ -50,15 +50,28 @@ class Main extends React.Component {
 
   highLightText() {
     var selection = window.getSelection();
-    var selection_text = selection.toString();
+    var parent = selection.anchorNode.parentElement;
+    console.log(selection);
+    // console.log(parent.nodeName);
+    if(selection.extentNode.nextSibling){
+      // remove mark tag
+      if(selection.extentNode.nextSibling.nodeName == "MARK"){
+        console.log('its a mark node');
+      }
+    } else {
 
-    var mark = document.createElement('mark');
+      var selection_text = selection.toString();
 
-    mark.textContent = selection_text;
+      var mark = document.createElement('mark');
 
-    var range = selection.getRangeAt(0);
-    range.deleteContents();
-    range.insertNode(mark);
+      mark.textContent = selection_text;
+
+      var range = selection.getRangeAt(0);
+      range.deleteContents();
+      range.insertNode(mark);
+    }
+
+    
   }
 
   commentText() {
