@@ -10,7 +10,8 @@ import Editor from 'react-medium-editor';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''}
+    this.state = {text: '', comments: ''}
+    this.commentRetrieve = this.commentRetrieve.bind(this);
   }
 
   render() {
@@ -74,10 +75,14 @@ class Main extends React.Component {
     div.style.width = rect.width + 'px';
     div.className = 'toolTip';
     ReactDOM.render(
-      <Tooltip highL={this.highLightText.bind(this)} commentT={this.commentText.bind(this)} />,
+      <Tooltip highL={this.highLightText.bind(this)} commentT={this.commentText.bind(this)} commentR={this.commentRetrieve}/>,
       document.body.appendChild(div),
     )
     document.body.appendChild(div);
+  }
+
+  commentRetrieve(event) {
+    this.setState({comments: event.target.value});
   }
   
   removetoolBox() {

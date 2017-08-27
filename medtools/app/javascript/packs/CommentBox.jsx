@@ -10,7 +10,7 @@ class CommentBox extends React.Component {
         return (
             <div className = "container">
                 <h3> Please enter a comment! </h3>
-                <textarea className="textAreaBox"></textarea>
+                <textarea onChange={this.props.commentR} className="textAreaBox"></textarea>
             </div>
         )
     }
