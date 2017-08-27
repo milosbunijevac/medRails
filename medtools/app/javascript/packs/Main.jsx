@@ -1,6 +1,3 @@
-require('medium-editor/dist/css/medium-editor.css');
-require('medium-editor/dist/css/themes/bootstrap.css');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTooltip from 'react-tooltip';
@@ -26,8 +23,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className = "container" onMouseDown={this.removetoolBox.bind(this)} onMouseUpCapture={this.captureSelection.bind(this)}>
+      <div className = "container mainTextBody" onMouseDown={this.removetoolBox.bind(this)} onMouseUpCapture={this.captureSelection.bind(this)}>
         <h1 className = "headLine" >Medium Markup</h1>
+          <hr />
           <p className='editable'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id felis vel sem tristique efficitur. Nunc neque purus, tempor eget urna eu, porttitor congue nulla. Morbi vitae lectus sollicitudin, congue dolor ac, ornare ex. Aenean molestie rutrum mauris, vel ultricies erat pellentesque eget. Nunc at nisi id turpis lobortis ultrices ac eget mi. Cras ac facilisis leo. Vestibulum a enim eget ex tempor pretium. Nunc dignissim bibendum molestie. Fusce imperdiet imperdiet tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec gravida massa. Fusce tristique, nulla vitae porttitor venenatis, mi sem fermentum metus, sit amet auctor mi nisl nec erat.</p>
           {(this.state.showSideComments) ? <SideComments /> : ''}
       </div>
@@ -87,9 +85,9 @@ class Main extends React.Component {
     var range = selection.getRangeAt(0);
     var rect = range.getBoundingClientRect();
     var div = document.createElement('div');
-    div.style.top = (rect.top + -75) + 'px';
-    div.style.left= (rect.left) + 'px';
-    div.style.height = 50 + 'px';
+    div.style.top = (rect.top + -55) + 'px';
+    div.style.left= (rect.left + -65) + 'px';
+    div.style.height = 35 + 'px';
     div.style.width = rect.width + 'px';
     div.className = 'toolTip';
     ReactDOM.render(

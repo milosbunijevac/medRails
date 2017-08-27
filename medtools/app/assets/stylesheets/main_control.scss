@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+    background-color: whitesmoke;
+    height: 100%;
+}
+
 .headLine {
     text-align: center;
 }
@@ -24,7 +29,7 @@
 }
 
 .buttons {
-    margin-top: 1.5%;
+    margin-top: 0.3%;
     color: black;
     background-color: #7D98ED;
     border-radius: 5px;
@@ -53,15 +58,20 @@
 .sideComment {
     position: absolute;
     right: 300px;
-    top: 90px;
+    top: 125px;
 }
 
 .sideCommentView {
     position: absolute;
     left: 69.5%;
-    top: 12%;
+    top: 15.7%;
     background-color: beige;
     min-width: 300px;
     max-width: 300px;
     border-radius: 10px;
+}
+
+.mainTextBody {
+    min-height: 100vh;
+    background-color: mintcream;
 }
