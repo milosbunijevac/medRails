@@ -56,9 +56,14 @@ class Main extends React.Component {
 
   commentText() {
     if (typeof(Storage) !== "undefined") {
-      // Code for localStorage/sessionStorage.
-
-      // localStorage.setItem("lastname", "Smith");
+      var storagetest = JSON.parse(localStorage.getItem("defaultUser"))
+      if(!storagetest){
+        var comments = [];
+        comments.push(this.state.comments);
+        localStorage.setItem('defaultUser', JSON.stringify(comments))
+      }
+      storagetest.push(this.state.comments);
+      localStorage.setItem('defaultUser', JSON.stringify(storagetest))
     } else {
         alert('Sorry, this browser does not have support for localStorage');
     }
@@ -68,7 +73,7 @@ class Main extends React.Component {
     var selection = window.getSelection()
     var range = selection.getRangeAt(0);
     var rect = range.getBoundingClientRect();
-    var div = document.createElement('div');   // make box
+    var div = document.createElement('div');
     div.style.top = (rect.top + -75) + 'px';
     div.style.left= (rect.left) + 'px';
     div.style.height = 50 + 'px';

@@ -28,7 +28,7 @@ class Tooltip extends React.Component {
     div.style.left = (rect.left + 180) + 'px';
     div.className = 'commentBox';
     ReactDOM.render(
-      <CommentBox commentR={this.props.commentR}/>,
+      <CommentBox commentR={this.props.commentR} commentT={this.props.commentT}/>,
       document.body.appendChild(div),
     )
     
