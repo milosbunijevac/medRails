@@ -1,0 +1,9 @@
+{
+  "CommentBox.js": "http://127.0.0.1:8080/packs/CommentBox.js",
+  "Main.js": "http://127.0.0.1:8080/packs/Main.js",
+  "SideComments.js": "http://127.0.0.1:8080/packs/SideComments.js",
+  "SideCommentsView.js": "http://127.0.0.1:8080/packs/SideCommentsView.js",
+  "Tooltip.js": "http://127.0.0.1:8080/packs/Tooltip.js",
+  "application.js": "http://127.0.0.1:8080/packs/application.js",
+  "hello_react.js": "http://127.0.0.1:8080/packs/hello_react.js"
+}
