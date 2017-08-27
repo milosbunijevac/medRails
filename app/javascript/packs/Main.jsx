@@ -6,7 +6,7 @@ import SideComments from './SideComments.jsx';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {text: '', comments: '', showSideComments: false}
+    this.state = {text: '', comments: '', showSideComments: false, recentHighlight: ''}
     this.commentRetrieve = this.commentRetrieve.bind(this);
   }
 
@@ -51,27 +51,27 @@ class Main extends React.Component {
   highLightText() {
     var selection = window.getSelection();
     var parent = selection.anchorNode.parentElement;
-    console.log(selection);
-    // console.log(parent.nodeName);
+    var selection_text = selection.toString();
+    var range = selection.getRangeAt(0);
+    this.setState({recentHighlight: selection_text});
+
     if(selection.extentNode.nextSibling){
       // remove mark tag
       if(selection.extentNode.nextSibling.nodeName == "MARK"){
-        console.log('its a mark node');
+        var span = document.createElement('span');
+
+        console.log(this.state.recentHighlight);
+        span.textContent = this.state.recentHighlight;
+        range.deleteContents();
+        range.insertNode(span);
       }
     } else {
-
-      var selection_text = selection.toString();
-
       var mark = document.createElement('mark');
-
       mark.textContent = selection_text;
-
-      var range = selection.getRangeAt(0);
       range.deleteContents();
       range.insertNode(mark);
     }
 
-    
   }
 
   commentText() {
