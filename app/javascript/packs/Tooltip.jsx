@@ -12,7 +12,7 @@ class Tooltip extends React.Component {
 
   render () {
     return (
-      <div className="container" >
+      <div className="container" > 
         <button onClick={this.props.highL} className="buttons">Highlight</button>
         <button onClick={this.commentBoxControl} className="buttons">Comment</button>
       </div>
