@@ -9,10 +9,12 @@ class CommentBox extends React.Component {
     render() {
         return (
             <div>
-                <textarea></textarea>
+                <textarea ></textarea>
             </div>
         )
     }
+
+
 }
 
 export default CommentBox;

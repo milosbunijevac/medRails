@@ -7,12 +7,11 @@ class Tooltip extends React.Component {
   constructor(props){
     super(props);
     this.state = ({boxopen: false})
-    this.commentBoxControl = this.commentBoxControl.bind(this);
   }
 
   render () {
     return (
-      <div className="container">
+      <div className="container" >
         <button onClick={this.props.highL} className="buttons">Highlight</button>
         <button onClick={this.commentBoxControl} className="buttons">Comment</button>
       </div>
@@ -20,21 +19,23 @@ class Tooltip extends React.Component {
   }
 
   commentBoxControl() {
+    var selection = window.getSelection();
+    var range = selection.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
     var div = document.createElement('div');
+    div.style.top = (rect.top + -75) + 'px';
+    div.style.left = (rect.left + 180) + 'px';
     div.className = 'commentBox';
-      ReactDOM.render(
-        <CommentBox />,
-        document.body.appendChild(div),
-      )
+    ReactDOM.render(
+      <CommentBox />,
+      document.body.appendChild(div),
+    )
     
   }
 
-  removeCommentBoxControl() {
-    var elements = document.getElementsByClassName('commentBox');
-    while(elements.length > 0){
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-  }
+
+
+
 }
 
 export default Tooltip;

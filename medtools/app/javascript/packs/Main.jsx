@@ -85,6 +85,14 @@ class Main extends React.Component {
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
     }
+    this.removeCommentBoxControl();
+  }
+
+  removeCommentBoxControl() {
+    var elements = document.getElementsByClassName('commentBox');
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
   }
 }
 
