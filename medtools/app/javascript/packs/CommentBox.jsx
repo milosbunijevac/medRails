@@ -8,8 +8,9 @@ class CommentBox extends React.Component {
 
     render() {
         return (
-            <div>
-                <textarea ></textarea>
+            <div className = "container">
+                <h3> Please enter a comment! </h3>
+                <textarea className="textAreaBox"></textarea>
             </div>
         )
     }
