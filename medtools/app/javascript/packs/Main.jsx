@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactTooltip from 'react-tooltip';
 import Tooltip from './Tooltip.jsx';
 import SideComments from './SideComments.jsx';
-import Editor from 'react-medium-editor';
 
 class Main extends React.Component {
   constructor(props) {
