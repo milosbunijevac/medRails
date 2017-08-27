@@ -32,7 +32,7 @@ class Main extends React.Component {
     } else if (document.selection) {
       selectedText = document.selection.createRange().text;
     }
-    console.log('this is selectedtext: ', selectedText)
+
     this.setState({text: selectedText.toString()})
     if(selectedText.toString() !== ''){
       this.toolBox();
@@ -54,7 +54,13 @@ class Main extends React.Component {
   }
 
   commentText() {
-    console.log('comment this!');
+    if (typeof(Storage) !== "undefined") {
+      // Code for localStorage/sessionStorage.
+
+      // localStorage.setItem("lastname", "Smith");
+    } else {
+        alert('Sorry, this browser does not have support for localStorage');
+    }
   }
 
   toolBox() {
