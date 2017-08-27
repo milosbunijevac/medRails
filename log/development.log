@@ -14843,3 +14843,10 @@ Processing by MainControlController#index as HTML
 Completed 200 OK in 1870ms (Views: 1725.7ms)
 
 
+Started GET "/main_control/index" for 127.0.0.1 at 2017-08-27 16:46:58 -0400
+Processing by MainControlController#index as HTML
+  Rendering main_control/index.html.erb within layouts/application
+  Rendered main_control/index.html.erb within layouts/application (136.6ms)
+Completed 200 OK in 1065ms (Views: 955.6ms)
+
+
