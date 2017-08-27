@@ -10,8 +10,8 @@ class Tooltip extends React.Component {
     return (
       <div className="container">
 
-        <button onClick={this.highl} className="buttons">Highlight</button>
-        <button onClick={this.commentT} className="buttons">Comment</button>
+        <button onClick={this.props.highL} className="buttons">Highlight</button>
+        <button onClick={this.props.commentT} className="buttons">Comment</button>
       </div>
     )
   }

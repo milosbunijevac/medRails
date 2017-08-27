@@ -41,7 +41,16 @@ class Main extends React.Component {
   }
 
   highLightText() {
-    console.log('highlight this!');
+    var selection = window.getSelection();
+    var selection_text = selection.toString();
+
+    var mark = document.createElement('mark');
+
+    mark.textContent = selection_text;
+
+    var range = selection.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(mark);
   }
 
   commentText() {
@@ -59,7 +68,7 @@ class Main extends React.Component {
     div.style.width = rect.width + 'px';
     div.className = 'toolTip';
     ReactDOM.render(
-      <Tooltip highli={this.highLightText} commentT={this.commentText} />,
+      <Tooltip highL={this.highLightText.bind(this)} commentT={this.commentText.bind(this)} />,
       document.body.appendChild(div),
     )
     document.body.appendChild(div);
