@@ -6,6 +6,7 @@ import CommentBox from './CommentBox.jsx';
 class Tooltip extends React.Component {
   constructor(props){
     super(props);
+    this.state = ({boxopen: false})
     this.commentBoxControl = this.commentBoxControl.bind(this);
   }
 
@@ -25,6 +26,7 @@ class Tooltip extends React.Component {
         <CommentBox />,
         document.body.appendChild(div),
       )
+    
   }
 
   removeCommentBoxControl() {
