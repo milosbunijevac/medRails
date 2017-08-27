@@ -20,22 +20,27 @@ class Tooltip extends React.Component {
   }
 
   commentBoxControl() {
-    var selection = window.getSelection();
-    var range = selection.getRangeAt(0);
-    var rect = range.getBoundingClientRect();
-    var div = document.createElement('div');
-    div.style.top = (rect.top + -75) + 'px';
-    div.style.left = (rect.left + 180) + 'px';
-    div.className = 'commentBox';
-    ReactDOM.render(
-      <CommentBox commentR={this.props.commentR} commentT={this.props.commentT}/>,
-      document.body.appendChild(div),
-    )
-    
+    if(!this.state.boxopen){
+      var selection = window.getSelection();
+      var range = selection.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      var div = document.createElement('div');
+      div.style.top = (rect.top + -75) + 'px';
+      div.style.left = (rect.left + 180) + 'px';
+      div.className = 'commentBox';
+      ReactDOM.render(
+        <CommentBox commentR={this.props.commentR} commentT={this.props.commentT}/>,
+        document.body.appendChild(div),
+      )
+      this.setState({boxopen: true})
+    } else {
+      var elements = document.getElementsByClassName('commentBox');
+      while(elements.length > 0){
+          elements[0].parentNode.removeChild(elements[0]);
+      }
+      this.setState({boxopen: false});
+    }
   }
-
-
-
 
 }
 
