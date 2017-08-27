@@ -49,3 +49,19 @@
     bottom: 10px;
     right: 135px;        
 }
+
+.sideComment {
+    position: absolute;
+    right: 300px;
+    top: 90px;
+}
+
+.sideCommentView {
+    position: absolute;
+    left: 69.5%;
+    top: 12%;
+    background-color: beige;
+    min-width: 300px;
+    max-width: 300px;
+    border-radius: 10px;
+}

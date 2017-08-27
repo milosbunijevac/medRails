@@ -5,13 +5,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTooltip from 'react-tooltip';
 import Tooltip from './Tooltip.jsx';
+import SideComments from './SideComments.jsx';
 import Editor from 'react-medium-editor';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {text: '', comments: ''}
+    this.state = {text: '', comments: '', showSideComments: false}
     this.commentRetrieve = this.commentRetrieve.bind(this);
+  }
+
+  componentDidMount() {
+    if(!this.state.showSideComments){
+      var storagePopulated = JSON.parse(localStorage.getItem("defaultUser"))
+      if(storagePopulated){
+        this.setState({showSideComments: true})
+      }
+    }
   }
 
   render() {
@@ -19,6 +29,7 @@ class Main extends React.Component {
       <div className = "container" onMouseDown={this.removetoolBox.bind(this)} onMouseUpCapture={this.captureSelection.bind(this)}>
         <h1 className = "headLine" >Medium Markup</h1>
           <p className='editable'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id felis vel sem tristique efficitur. Nunc neque purus, tempor eget urna eu, porttitor congue nulla. Morbi vitae lectus sollicitudin, congue dolor ac, ornare ex. Aenean molestie rutrum mauris, vel ultricies erat pellentesque eget. Nunc at nisi id turpis lobortis ultrices ac eget mi. Cras ac facilisis leo. Vestibulum a enim eget ex tempor pretium. Nunc dignissim bibendum molestie. Fusce imperdiet imperdiet tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec gravida massa. Fusce tristique, nulla vitae porttitor venenatis, mi sem fermentum metus, sit amet auctor mi nisl nec erat.</p>
+          {(this.state.showSideComments) ? <SideComments /> : ''}
       </div>
     );
   }
@@ -61,9 +72,11 @@ class Main extends React.Component {
         var comments = [];
         comments.push(this.state.comments);
         localStorage.setItem('defaultUser', JSON.stringify(comments))
+        this.setState({showSideComments: true})
       }
       storagetest.push(this.state.comments);
       localStorage.setItem('defaultUser', JSON.stringify(storagetest))
+      this.setState({showSideComments: true})
     } else {
         alert('Sorry, this browser does not have support for localStorage');
     }

@@ -15,8 +15,7 @@ class CommentBox extends React.Component {
             </div>
         )
     }
-
-
+    
 }
 
 export default CommentBox;
