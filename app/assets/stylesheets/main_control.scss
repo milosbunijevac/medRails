@@ -75,8 +75,7 @@ html, body {
 }
 
 .sideComment {
-    position: fixed;
-    top: 250px;
+    position: relative;
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 1s; /* Firefox < 16 */
     -ms-animation: fadein 1s; /* Internet Explorer */
