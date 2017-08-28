@@ -13,6 +13,7 @@ class SideComments extends React.Component {
         return (
             <div className="sideComment">
                 <button id="sideButton" onClick={this.showComments}>Comments</button>
+                {(this.state.areCommentsShown) ? <SideCommentsView /> : ''}
             </div>
         )
     }
@@ -21,15 +22,13 @@ class SideComments extends React.Component {
         if(!this.state.areCommentsShown){
             var div = document.createElement('div');
             div.className = "sideCommentView";
-            ReactDOM.render(
-                <SideCommentsView />,
-                document.body.appendChild(div),
-            )
+            document.getElementById("sideButton").appendChild(div);
+            
             this.setState({areCommentsShown: true});
         } else {
             var elements = document.getElementsByClassName('sideCommentView');
             while(elements.length > 0){
-                elements[0].parentNode.removeChild(elements[0]);
+                elements[0].className = elements[0].className.replace(/\bsideCommentView\b/g, "");
             }
             this.setState({areCommentsShown: false});
         }
