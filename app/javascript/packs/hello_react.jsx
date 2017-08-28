@@ -22,7 +22,7 @@ class Hello extends React.Component {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Hello/>,
     document.body.appendChild(document.createElement('div')),
   )
 })
