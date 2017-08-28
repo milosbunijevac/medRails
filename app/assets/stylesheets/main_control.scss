@@ -19,13 +19,27 @@ html, body {
     position: relative;
 }
 
+@keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 .toolTip {
     position: absolute;
     background-color: black;
     min-width: 180px;
     max-width: 180px;
     border-radius: 10px;
-    color: white
+    color: white;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+     -ms-animation: fadein 1s; /* Internet Explorer */
+      -o-animation: fadein 1s; /* Opera < 12.1 */
+         animation: fadein 1s;
 }
 
 .buttons {
@@ -41,6 +55,11 @@ html, body {
     background-color: beige;
     height: 200px;
     width: 300px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
 }
 
 .textAreaBox {
@@ -56,19 +75,28 @@ html, body {
 }
 
 .sideComment {
-    position: absolute;
-    right: 300px;
-    top: 125px;
+    position: fixed;
+    top: 250px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
 }
 
 .sideCommentView {
-    position: absolute;
-    left: 69.5%;
-    top: 15.7%;
+    position: fixed;
+    left: 14%;
+    top: 30%;
     background-color: beige;
     min-width: 300px;
     max-width: 300px;
     border-radius: 10px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
 }
 
 .mainTextBody {
